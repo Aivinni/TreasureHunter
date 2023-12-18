@@ -50,7 +50,7 @@ public class Shop {
             if (cost == 0) {
                 System.out.println("We ain't got none of those.");
             } else {
-                System.out.print("It'll cost you " + cost + " gold. Buy it (y/n)? ");
+                System.out.print("It'll cost you " + Colors.YELLOW + cost + " gold." + Colors.RESET + " Buy it (y/n)? ");
                 String option = SCANNER.nextLine().toLowerCase();
 
                 if (option.equals("y")) {
@@ -65,7 +65,7 @@ public class Shop {
             if (cost == 0) {
                 System.out.println("We don't want none of those.");
             } else {
-                System.out.print("It'll get you " + cost + " gold. Sell it (y/n)? ");
+                System.out.print("It'll get you " + Colors.YELLOW + cost + " gold." + Colors.RESET + " Sell it (y/n)? ");
                 String option = SCANNER.nextLine().toLowerCase();
 
                 if (option.equals("y")) {
@@ -101,7 +101,7 @@ public class Shop {
         if (customer.buyItem(item, costOfItem)) {
             System.out.println("Ye' got yerself a " + item + ". Come again soon.");
         } else {
-            System.out.println("Hmm, either you don't have enough" + Colors.YELLOW + "gold" + Colors.RESET + "or you've already got one of those!");
+            System.out.println("Hmm, either you don't have enough" + Colors.YELLOW + " gold " + Colors.RESET + "or you've already got one of those!");
         }
     }
 
