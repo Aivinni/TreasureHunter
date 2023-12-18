@@ -22,6 +22,16 @@ public class Hunter {
         gold = startingGold;
     }
 
+    public Hunter(String hunterName, int startingGold, boolean test) {
+        this.hunterName = hunterName;
+        if (test) {
+            kit = new String[]{"water", "rope", "machete", "horse", "boat"};
+        } else {
+            kit = new String[5];
+        }
+        gold = startingGold;
+    }
+
     //Accessors
     public String getHunterName() {
         return hunterName;
