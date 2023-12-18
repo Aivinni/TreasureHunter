@@ -57,7 +57,7 @@ public class TreasureHunter {
         }
         if (hard.equals("test")) {
             testMode = true;
-            hunter = new Hunter(name, 100, true);
+            hunter = new Hunter(name, 1, true);
         }
     }
 
@@ -98,7 +98,12 @@ public class TreasureHunter {
      * This method will loop until the user chooses to exit.
      */
     private void showMenu() {
+
         String choice = "";
+
+        if (hunter.getHunterGold() == -1) {
+            choice = "x";
+        }
 
         while (!choice.equals("x")) {
             System.out.println();
