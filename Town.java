@@ -114,6 +114,10 @@ public class Town {
         }
     }
 
+    public void digForGold() {
+        
+    }
+
     public String toString() {
         return "This nice little town is surrounded by " + terrain.getTerrainName() + ".";
     }
