@@ -98,12 +98,7 @@ public class TreasureHunter {
      * This method will loop until the user chooses to exit.
      */
     private void showMenu() {
-
         String choice = "";
-
-        if (hunter.getHunterGold() == -1) {
-            choice = "x";
-        }
 
         while (!choice.equals("x")) {
             System.out.println();
