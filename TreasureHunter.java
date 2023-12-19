@@ -104,6 +104,9 @@ public class TreasureHunter {
             System.out.println();
             System.out.println(currentTown.getLatestNews());
             System.out.println("***");
+            if (hunter.getHunterGold() == -1) {
+                break;
+            }
             System.out.println(hunter);
             System.out.println(currentTown);
             System.out.println("(B)uy something at the shop.");
@@ -115,6 +118,10 @@ public class TreasureHunter {
             System.out.print("What's your next move? ");
             choice = SCANNER.nextLine().toLowerCase();
             processChoice(choice);
+        }
+
+        if (hunter.getHunterGold() == -1) {
+            System.out.println("GAME OVER - lost all coins");
         }
     }
 
