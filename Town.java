@@ -12,6 +12,7 @@ public class Town {
     private String printMessage;
     private boolean toughTown;
     private boolean easyMode;
+    public String[] treasureResults;
 
     /**
      * The Town Constructor takes in a shop and the surrounding terrain, but leaves the hunter as null until one arrives.
@@ -22,6 +23,7 @@ public class Town {
     public Town(Shop shop, double toughness, boolean easyMode) {
         this.shop = shop;
         this.terrain = getNewTerrain();
+        treasureResults = new String[]{"a crown", "a trophy", "a gem", "dust"};
 
         // the hunter gets set using the hunterArrives method, which
         // gets called from a client class
@@ -122,7 +124,22 @@ public class Town {
             }
         }
     }
+    public void huntForTreasure() {
+        int i = (int)(Math.random() * 4 + 1);
+        if (i == 1) {
+            printMessage = "You found " + treasureResults[0] + "!";
 
+        } else if (i == 2) {
+            printMessage = "You found " + treasureResults[1] + "!";
+        } else if (i == 3) {
+            printMessage = "You found " + treasureResults[2] + "!";
+        } else {
+            printMessage = "You found " + treasureResults[3] + "!";
+        }
+        if (printMessage.contains("dust")) {
+            printMessage += "There's nothing here.";
+        }
+    }
     public void digForGold() {
         if (hunter.hasItemInKit("shovel")) {
             if (Math.random() > 0.5) {
