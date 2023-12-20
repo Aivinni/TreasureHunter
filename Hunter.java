@@ -26,6 +26,8 @@ public class Hunter {
         this.hunterName = hunterName;
         if (mode.equals("test")) {
             kit = new String[]{"water", "rope", "machete", "horse", "boat", "boots", "shovel"};
+        } else if (mode.equals("samurai")) {
+            kit = new String[8];
         } else {
             kit = new String[7];
         }
@@ -61,7 +63,7 @@ public class Hunter {
      * @return true if the item is successfully bought.
      */
     public boolean buyItem(String item, int costOfItem) {
-        if (costOfItem == 0 || gold < costOfItem || hasItemInKit(item)) {
+        if (costOfItem == -1 || gold < costOfItem || hasItemInKit(item)) {
             return false;
         }
 
@@ -109,7 +111,7 @@ public class Hunter {
      * @param item The item to be added to the kit.
      * @return true if the item is not in the kit and has been added.
      */
-    private boolean addItem(String item) {
+    public boolean addItem(String item) {
         if (!hasItemInKit(item)) {
             int idx = emptyPositionInKit();
             kit[idx] = item;
