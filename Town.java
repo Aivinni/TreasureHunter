@@ -11,6 +11,7 @@ public class Town {
     private Terrain terrain;
     private String printMessage;
     private boolean toughTown;
+    private boolean easyMode;
 
     /**
      * The Town Constructor takes in a shop and the surrounding terrain, but leaves the hunter as null until one arrives.
@@ -18,7 +19,7 @@ public class Town {
      * @param shop The town's shoppe.
      * @param toughness The surrounding terrain.
      */
-    public Town(Shop shop, double toughness) {
+    public Town(Shop shop, double toughness, boolean easyMode) {
         this.shop = shop;
         this.terrain = getNewTerrain();
 
@@ -30,6 +31,10 @@ public class Town {
 
         // higher toughness = more likely to be a tough town
         toughTown = (Math.random() < toughness);
+
+        if (easyMode) {
+            this.easyMode = easyMode;
+        }
     }
 
     public String getLatestNews() {
@@ -102,7 +107,11 @@ public class Town {
         } else {
             printMessage = Colors.RED + "You want trouble, stranger!  You got it!\nOof! Umph! Ow!\n" + Colors.RESET;
             int goldDiff = (int) (Math.random() * 10) + 1;
-            if (Math.random() > noTroubleChance) {
+            double victory = Math.random();
+            if (easyMode) {
+                victory *= 2;
+            }
+            if (victory > noTroubleChance) {
                 printMessage += "Okay, stranger! You proved yer mettle. Here, take my gold.";
                 printMessage += "\nYou won the brawl and receive " + Colors.YELLOW + goldDiff + " gold." + Colors.RESET;
                 hunter.changeGold(goldDiff);
@@ -161,6 +170,9 @@ public class Town {
      */
     private boolean checkItemBreak() {
         double rand = Math.random();
+        if (easyMode) {
+            rand = 1;
+        }
         return (rand < 0.5);
     }
 }

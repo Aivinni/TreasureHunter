@@ -22,9 +22,9 @@ public class Hunter {
         gold = startingGold;
     }
 
-    public Hunter(String hunterName, int startingGold, boolean test) {
+    public Hunter(String hunterName, int startingGold, String mode) {
         this.hunterName = hunterName;
-        if (test) {
+        if (mode.equals("test")) {
             kit = new String[]{"water", "rope", "machete", "horse", "boat", "boots", "shovel"};
         } else {
             kit = new String[7];
