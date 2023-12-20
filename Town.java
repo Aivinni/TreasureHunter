@@ -115,7 +115,17 @@ public class Town {
     }
 
     public void digForGold() {
-        
+        if (hunter.hasItemInKit("shovel")) {
+            if (Math.random() > 0.5) {
+                int goldDiff = (int) (Math.random() * 20) + 1;
+                printMessage = "You dug up " + Colors.YELLOW + goldDiff + " gold!" + Colors.RESET;
+                hunter.changeGold(goldDiff);
+            } else {
+                printMessage = "You dug but only found dirt";
+            }
+        } else {
+            printMessage = "You can't dig for gold without a shovel!";
+        }
     }
 
     public String toString() {
