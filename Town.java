@@ -136,19 +136,25 @@ public class Town {
         }
     }
     public void huntForTreasure() {
+        String temp = "";
         int i = (int)(Math.random() * 4 + 1);
         if (i == 1) {
             printMessage = "You found " + treasureResults[0] + "!";
-
+            temp = treasureResults[0];
+            hunter.addTreasure(temp);
         } else if (i == 2) {
             printMessage = "You found " + treasureResults[1] + "!";
+            temp = treasureResults[1];
+            hunter.addTreasure(temp);
         } else if (i == 3) {
             printMessage = "You found " + treasureResults[2] + "!";
+            temp = treasureResults[2];
+            hunter.addTreasure(temp);
         } else {
             printMessage = "You found " + treasureResults[3] + "!";
         }
         if (printMessage.contains("dust")) {
-            printMessage += "There's nothing here.";
+            printMessage += "\nThere's nothing here you wee little lad.";
         }
     }
     public void digForGold() {

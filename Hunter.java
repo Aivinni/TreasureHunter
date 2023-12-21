@@ -33,6 +33,7 @@ public class Hunter {
         } else {
             kit = new String[7];
         }
+        treasure = new String[3];
         gold = startingGold;
     }
 
@@ -218,14 +219,29 @@ public class Hunter {
         return -1;
     }
 
-    //fixing this tmrw.
     public boolean addTreasure(String item) {
         if (!hasItemInTreasures(item)) {
             int idx = emptyPositionInTreasures();
             treasure[idx] = item;
             return true;
         }
-
         return false;
+    }
+    public boolean hasItemInTreasures(String item) {
+        for (String tmpItem : treasure) {
+            if (item.equals(tmpItem)) {
+                // early return
+                return true;
+            }
+        }
+        return false;
+    }
+    private int emptyPositionInTreasures() {
+        for (int i = 0; i < treasure.length; i++) {
+            if (treasure[i] == null) {
+                return i;
+            }
+        }
+        return -1;
     }
 }

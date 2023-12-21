@@ -18,6 +18,7 @@ public class TreasureHunter {
     private boolean hardMode;
     private boolean easyMode;
     private boolean samurai;
+    private int greedPreventionProtocol;
 
     /**
      * Constructs the Treasure Hunter game.
@@ -29,6 +30,7 @@ public class TreasureHunter {
         hardMode = false;
         easyMode = false;
         samurai = false;
+        greedPreventionProtocol = 0;
     }
 
     /**
@@ -122,6 +124,7 @@ public class TreasureHunter {
             System.out.println("(S)ell something at the shop.");
             System.out.println("(M)ove on to a different town.");
             System.out.println("(L)ook for trouble!");
+            System.out.println("(H)unt for treasure!");
             System.out.println("(D)ig for gold!");
             System.out.println("Give up the hunt and e(X)it.");
             System.out.println();
@@ -150,6 +153,15 @@ public class TreasureHunter {
             }
         } else if (choice.equals("l")) {
             currentTown.lookForTrouble();
+        } else if (choice.equals("h")) {
+            greedPreventionProtocol++;
+            while (greedPreventionProtocol == 1) {
+                currentTown.huntForTreasure();
+                greedPreventionProtocol++;
+            }
+            if (greedPreventionProtocol != 1) {
+                System.out.println("No need to check again.");
+            }
         } else if (choice.equals("d")) {
             currentTown.digForGold();
         } else if (choice.equals("x")) {
