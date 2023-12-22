@@ -12,7 +12,6 @@ public class Town {
     private String printMessage;
     private boolean toughTown;
     private boolean easyMode;
-    private boolean cheat;
     public String[] treasureResults;
 
     /**
@@ -37,9 +36,6 @@ public class Town {
 
         if (easyMode) {
             this.easyMode = easyMode;
-        }
-        if (samurai) {
-            cheat = samurai;
         }
     }
 

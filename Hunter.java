@@ -168,6 +168,9 @@ public class Hunter {
         if (!kitIsEmpty()) {
             str += " and " + getInventory();
         }
+        if (!treasuresIsEmpty()) {
+            str += "\nTreasures: " + getTreasures();
+        }
         return str;
     }
 
@@ -243,5 +246,28 @@ public class Hunter {
             }
         }
         return -1;
+    }
+
+        private boolean treasuresIsEmpty() {
+        for (String string : treasure) {
+            if (string != null) {
+                return false;
+            }
+        }
+
+        return true;
+    }
+
+        public String getTreasures() {
+        String printableTreasures = "";
+        String space = " ";
+
+        for (String item : treasure) {
+            if (item != null) {
+                printableTreasures += item + space;
+            }
+        }
+
+        return printableTreasures;
     }
 }
