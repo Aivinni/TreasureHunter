@@ -141,21 +141,36 @@ public class Town {
         if (i == 1) {
             printMessage = "You found " + treasureResults[0] + "!";
             temp = treasureResults[0];
-            hunter.addTreasure(temp);
+            if (hunter.hasItemInTreasures(temp) == true) {
+                printMessage += "\nDon't be too greedy...";
+            } else {
+                hunter.addTreasure(temp);
+            }
         } else if (i == 2) {
             printMessage = "You found " + treasureResults[1] + "!";
             temp = treasureResults[1];
-            hunter.addTreasure(temp);
+            if (hunter.hasItemInTreasures(temp) == true) {
+                printMessage += "\nDon't be too greedy...";
+            } else {
+                hunter.addTreasure(temp);
+            }
         } else if (i == 3) {
             printMessage = "You found " + treasureResults[2] + "!";
             temp = treasureResults[2];
-            hunter.addTreasure(temp);
+            if (hunter.hasItemInTreasures(temp) == true) {
+                printMessage += "\nDon't be too greedy...";
+            } else {
+                hunter.addTreasure(temp);
+            }
         } else {
             printMessage = "You found " + treasureResults[3] + "!";
         }
         if (printMessage.contains("dust")) {
             printMessage += "\nThere's nothing here you wee little lad.";
         }
+    }
+    public void cancelMessage() {
+        printMessage = "";
     }
     public void digForGold() {
         if (hunter.hasItemInKit("shovel")) {

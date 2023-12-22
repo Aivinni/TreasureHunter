@@ -150,17 +150,17 @@ public class TreasureHunter {
                 // This town is going away so print its news ahead of time.
                 System.out.println(currentTown.getLatestNews());
                 enterTown();
+                greedPreventionProtocol = 0;
             }
         } else if (choice.equals("l")) {
             currentTown.lookForTrouble();
         } else if (choice.equals("h")) {
-            greedPreventionProtocol++;
-            while (greedPreventionProtocol == 1) {
+            if (greedPreventionProtocol == 0) {
                 currentTown.huntForTreasure();
                 greedPreventionProtocol++;
-            }
-            if (greedPreventionProtocol != 1) {
+            } else if (greedPreventionProtocol != 0) {
                 System.out.println("No need to check again.");
+                currentTown.cancelMessage();
             }
         } else if (choice.equals("d")) {
             currentTown.digForGold();
