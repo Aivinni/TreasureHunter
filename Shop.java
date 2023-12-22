@@ -112,7 +112,7 @@ public class Shop {
     public void buyItem(String item) {
         int costOfItem = checkMarketPrice(item, true);
         if (customer.hasItemInKit("sword")) {
-            System.out.println("the sword intimidates the shopkeeper and he gives you the item for free");
+            System.out.println("The sword intimidates the shopkeeper and he gives you the item for free");
             customer.addItem(item);
         } else {
             if (customer.buyItem(item, costOfItem)) {
