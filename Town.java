@@ -12,7 +12,6 @@ public class Town {
     private String printMessage;
     private boolean toughTown;
     private boolean easyMode;
-    private boolean cheat;
     public String[] treasureResults;
 
     /**
@@ -37,9 +36,6 @@ public class Town {
 
         if (easyMode) {
             this.easyMode = easyMode;
-        }
-        if (samurai) {
-            cheat = samurai;
         }
     }
 
@@ -72,8 +68,12 @@ public class Town {
         boolean canLeaveTown = terrain.canCrossTerrain(hunter);
         if (canLeaveTown) {
             String item = terrain.getNeededItem();
-            printMessage = "You used your " + item + " to cross the " + terrain.getTerrainName() + ".";
-            if (checkItemBreak()) {
+            if (item.equals("machete") && hunter.hasItemInKit("sword")) {
+                printMessage = "You used your sword to cross the " + terrain.getTerrainName() + ".";
+            } else {
+                printMessage = "You used your " + item + " to cross the " + terrain.getTerrainName() + ".";
+            }
+            if (checkItemBreak() && !(item.equals("machete") && hunter.hasItemInKit("sword"))) {
                 hunter.removeItemFromKit(item);
                 printMessage += "\nUnfortunately, you lost your " + item;
             }
