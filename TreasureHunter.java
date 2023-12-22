@@ -110,12 +110,14 @@ public class TreasureHunter {
      */
     private void showMenu() {
         String choice = "";
-
         while (!choice.equals("x")) {
             System.out.println();
             System.out.println(currentTown.getLatestNews());
             System.out.println("***");
             if (hunter.getHunterGold() == -1) {
+                break;
+            }
+            if (hunter.allTreasures() == true) {
                 break;
             }
             System.out.println(hunter);

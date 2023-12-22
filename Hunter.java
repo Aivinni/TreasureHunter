@@ -244,4 +244,13 @@ public class Hunter {
         }
         return -1;
     }
+
+    public boolean allTreasures() {
+        for (int i = 0; i < treasure.length; i++) {
+            if (treasure[i] == null) {
+                return false;
+            }
+        }
+        return true;
+    }
 }

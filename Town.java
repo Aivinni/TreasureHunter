@@ -137,7 +137,7 @@ public class Town {
     }
     public void huntForTreasure() {
         String temp = "";
-        int i = (int)(Math.random() * 4 + 1);
+        int i = (int) (Math.random() * 4 + 1);
         if (i == 1) {
             printMessage = "You found " + treasureResults[0] + "!";
             temp = treasureResults[0];
@@ -145,6 +145,9 @@ public class Town {
                 printMessage += "\nDon't be too greedy...";
             } else {
                 hunter.addTreasure(temp);
+                if (hunter.hasItemInTreasures(treasureResults[0]) == true && hunter.hasItemInTreasures(treasureResults[1]) == true && hunter.hasItemInTreasures(treasureResults[2]) == true) {
+                    printMessage += "\nCongratulations, you have found the last of the three treasures, you win!";
+                }
             }
         } else if (i == 2) {
             printMessage = "You found " + treasureResults[1] + "!";
@@ -153,6 +156,9 @@ public class Town {
                 printMessage += "\nDon't be too greedy...";
             } else {
                 hunter.addTreasure(temp);
+                if (hunter.hasItemInTreasures(treasureResults[0]) == true && hunter.hasItemInTreasures(treasureResults[1]) == true && hunter.hasItemInTreasures(treasureResults[2]) == true) {
+                    printMessage += "\nCongratulations, you have found the last of the three treasures, you win!";
+                }
             }
         } else if (i == 3) {
             printMessage = "You found " + treasureResults[2] + "!";
@@ -161,6 +167,9 @@ public class Town {
                 printMessage += "\nDon't be too greedy...";
             } else {
                 hunter.addTreasure(temp);
+                if (hunter.hasItemInTreasures(treasureResults[0]) == true && hunter.hasItemInTreasures(treasureResults[1]) == true && hunter.hasItemInTreasures(treasureResults[2]) == true) {
+                    printMessage += "\nCongratulations, you have found the last of the three treasures, you win!";
+                }
             }
         } else {
             printMessage = "You found " + treasureResults[3] + "!";
